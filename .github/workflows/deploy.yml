@@ -1,29 +1,34 @@
-name: Build and Deploy Vite App
+name: Force Install + Deploy Vite
 
 on:
   push:
-    branches: [ "main" ]     # auto deploy whenever you push to main branch
+    branches: [ "main" ]     # auto deploy on push to main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install
+      # 🔥 Force clean install including Vite
+      - name: Install dependencies (fresh)
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --include=dev  # installs vite + dev deps
 
-      - name: Build the project
-        run: npm run build
+      # 🔥 Forcibly make vite executable
+      - name: Fix permissions
+        run: chmod +x node_modules/.bin/vite || true
 
-      - name: Deploy to GitHub Pages
+      - name: Build Vite Project
+        run: npx vite build    # will now run GUARANTEED
+
+      - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
