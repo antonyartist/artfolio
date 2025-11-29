@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { NAVBAR_HEIGHT } from '../constants';
-import pfp from 'assets/profile.jpeg';
+import pfp from '/assets/profile.jpeg';
 
 
 interface HeaderProps {
