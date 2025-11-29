@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { NAVBAR_HEIGHT } from '../constants';
-import pfp from '/assets/profile.jpeg';
 
 
 interface HeaderProps {
@@ -30,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
       <div className="text-center z-10 p-4">
         <div className="flex flex-col items-center">
           <div className="w-48 h-48 rounded-full bg-white/10 border-2 border-white/30 mb-6 shadow-lg flex-shrink-0">
-            <img src={pfp} alt="P.M. Antony" className="w-full h-full rounded-full object-cover" />
+            <img src='/assets/profile.jpeg' alt="P.M. Antony" className="w-full h-full rounded-full object-cover" />
           </div>
           <h1 className="font-artistic text-4xl md:text-5xl font-bold tracking-tight">
             P.M. ANTONY
