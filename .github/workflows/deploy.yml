@@ -1,29 +1,30 @@
-name: Build and Deploy React App to GitHub Pages
+name: Build and Deploy Vite App to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" ]   # Auto deploy when you push to main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 18        # <-- Good version for Vite
 
       - name: Install dependencies
-        run: npm install
+        run: npm install          # important: installs vite + dev deps
 
-      - name: Build
-        run: npm run build
+      - name: Build project
+        run: npm run build        # <-- This will now work
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # if CRA use ./build
+          publish_dir: ./dist     # For Vite build output
