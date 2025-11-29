@@ -37,16 +37,16 @@ export const HERO_BACKGROUND_IMAGES = [
 
 export const NEWS_ARTICLE_IMAGES = [
   {
-    src: 'assets/newscut/news1.jpeg',
+    src: '/assets/newscut/news1.jpeg',
   },
   {
-    src: 'assets/newscut/news7.jpeg',
+    src: '/assets/newscut/news7.jpeg',
   },
   {
-    src: 'assets/newscut/news6.jpeg',  
+    src: '/assets/newscut/news6.jpeg',  
   },
   {
-    src: 'assets/newscut/news5.jpeg',
+    src: '/assets/newscut/news5.jpeg',
   },
 ];
 
