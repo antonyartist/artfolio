@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { NAVBAR_HEIGHT } from '../constants';
+import profile from '../assets/profile.png';
 
 interface HeaderProps {
   onNavigate: (page: string, sectionId?: string) => void;
