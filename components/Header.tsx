@@ -2,6 +2,7 @@
 import React from 'react';
 import { NAVBAR_HEIGHT } from '../constants';
 
+
 interface HeaderProps {
   onNavigate: (page: string, sectionId?: string) => void;
 }

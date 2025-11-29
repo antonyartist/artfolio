@@ -1,0 +1,38 @@
+name: Force Install + Deploy Vite
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: write    # <-- REQUIRED FOR DEPLOYMENT
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install deps fresh
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --include=dev
+
+      - name: Allow vite execution
+        run: chmod +x node_modules/.bin/vite || true
+
+      - name: Build
+        run: npx vite build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # now has write access
+          publish_dir: ./dist
