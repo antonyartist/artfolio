@@ -2,7 +2,12 @@ name: Force Install + Deploy Vite
 
 on:
   push:
-    branches: [ "main" ]     # auto deploy on push to main
+    branches: [ "main" ]
+
+permissions:
+  contents: write    # <-- REQUIRED FOR DEPLOYMENT
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -15,21 +20,19 @@ jobs:
         with:
           node-version: 18
 
-      # 🔥 Force clean install including Vite
-      - name: Install dependencies (fresh)
+      - name: Install deps fresh
         run: |
           rm -rf node_modules package-lock.json
-          npm install --include=dev  # installs vite + dev deps
+          npm install --include=dev
 
-      # 🔥 Forcibly make vite executable
-      - name: Fix permissions
+      - name: Allow vite execution
         run: chmod +x node_modules/.bin/vite || true
 
-      - name: Build Vite Project
-        run: npx vite build    # will now run GUARANTEED
+      - name: Build
+        run: npx vite build
 
-      - name: Deploy to Github Pages
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }} # now has write access
           publish_dir: ./dist
