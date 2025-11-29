@@ -27,11 +27,11 @@ export const ACHIEVEMENTS = [
 ];
 
 export const HERO_BACKGROUND_IMAGES = [
-  '/assets/backgroundimage/ar1.jpeg',
-  '/assets/backgroundimage/ar2.jpeg',
-  '/assets/backgroundimage/ar6.jpeg',
-  '/assets/backgroundimage/ar3.jpeg',
-  '/assets/backgroundimage/ar4.jpeg',
+  'assets/backgroundimage/ar1.jpeg',
+  'assets/backgroundimage/ar2.jpeg',
+  'assets/backgroundimage/ar6.jpeg',
+  'assets/backgroundimage/ar3.jpeg',
+  'assets/backgroundimage/ar4.jpeg',
 
 ];
 
