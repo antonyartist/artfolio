@@ -27,26 +27,26 @@ export const ACHIEVEMENTS = [
 ];
 
 export const HERO_BACKGROUND_IMAGES = [
-  'assets/backgroundimage/ar1.jpeg',
-  'assets/backgroundimage/ar2.jpeg',
-  'assets/backgroundimage/ar6.jpeg',
-  'assets/backgroundimage/ar3.jpeg',
-  'assets/backgroundimage/ar4.jpeg',
+  '/assets/backgroundimage/ar1.jpeg',
+  '/assets/backgroundimage/ar2.jpeg',
+  '/assets/backgroundimage/ar6.jpeg',
+  '/assets/backgroundimage/ar3.jpeg',
+  '/assets/backgroundimage/ar4.jpeg',
 
 ];
 
 export const NEWS_ARTICLE_IMAGES = [
   {
-    src: '/assets/newscut/news1.jpeg',
+    src: 'assets/newscut/news1.jpeg',
   },
   {
-    src: '/assets/newscut/news7.jpeg',
+    src: 'assets/newscut/news7.jpeg',
   },
   {
-    src: '/assets/newscut/news6.jpeg',  
+    src: 'assets/newscut/news6.jpeg',  
   },
   {
-    src: '/assets/newscut/news5.jpeg',
+    src: 'assets/newscut/news5.jpeg',
   },
 ];
 
